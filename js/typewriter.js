@@ -53,7 +53,16 @@
 
 
 // ES6 Class
+/**
+ * Class representing a typewriter effect for text elements.
+ */
 class TypeWriter {
+    /**
+     * Create a TypeWriter.
+     * @param {HTMLElement} txtElement - The HTML element where text will be typed.
+     * @param {string[]} words - An array of strings to be typed out.
+     * @param {number|string} [wait=3000] - The wait time in milliseconds before deleting text.
+     */
     constructor(txtElement, words, wait = 3000) {
       this.txtElement = txtElement;
       this.words = words;
@@ -64,6 +73,11 @@ class TypeWriter {
       this.isDeleting = false;
     }
   
+    /**
+     * Type method that handles the typing and deleting logic.
+     * This method runs recursively with timeouts to simulate typing effect.
+     * @returns {void}
+     */
     type() {
       // Current index of word
       const current = this.wordIndex % this.words.length;
@@ -111,7 +125,11 @@ class TypeWriter {
   // Init On DOM Load
   document.addEventListener('DOMContentLoaded', init);
   
-  // Init App
+  /**
+   * Initializes the TypeWriter app.
+   * Selects the text element and retrieves attributes to instantiate the TypeWriter class.
+   * @returns {void}
+   */
   function init() {
     const txtElement = document.querySelector('.txt-type');
     const words = JSON.parse(txtElement.getAttribute('data-words'));

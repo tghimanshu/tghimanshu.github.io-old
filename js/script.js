@@ -1,3 +1,8 @@
+/**
+ * Toggles the hamburger menu and handles its animation.
+ * @param {Event} e - The click event.
+ * @returns {void}
+ */
 function hamburger(e){
     e.preventDefault();
     // alert("clicked");
@@ -11,6 +16,13 @@ function hamburger(e){
 }
 
 
+/**
+ * Event listener for scrolling.
+ * Handles:
+ * 1. Navbar background and padding changes on scroll.
+ * 2. Scroll-to-top button visibility.
+ * 3. Skills bar animation when scrolled into view.
+ */
 document.addEventListener('scroll', () => {
     let x = window.scrollY;
     if(x>=5){
@@ -48,6 +60,11 @@ document.addEventListener('scroll', () => {
 
 
 });
+
+/**
+ * Event listener for scroll to top button click.
+ * Smoothly scrolls the window to the top.
+ */
 $('#scrollTop').click(function (e) {
     let x= this.hash;
     $('body, html').animate({
@@ -55,7 +72,13 @@ $('#scrollTop').click(function (e) {
     },500);
 });
 
+// Event listener for hamburger click
 $('.hamburger').click(hamburger);
+
+/**
+ * Event listener for menu click.
+ * Closes the menu on mobile after a selection is made.
+ */
 $('.menu').click(function(){
     if($(window).width() <= 678){
       $('.hamburger i').removeClass('fa-times',1000);
@@ -63,22 +86,3 @@ $('.menu').click(function(){
       $('.menu').fadeOut();
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
