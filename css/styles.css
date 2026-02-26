@@ -85,6 +85,7 @@ header {
     align-items: center;
     color: white;
     padding: 2rem;
+    position: relative;
 }
 header::before {
     position: absolute;
